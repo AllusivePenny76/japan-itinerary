@@ -18,21 +18,6 @@
 <!-- AMBIENT BACKGROUND GRAPHICS -->
 <div class="ambient" aria-hidden="true">
 
-  <!-- Seigaiha wave pattern, traditional Japanese wave motif, drifting horizontally -->
-  <svg class="ambient-waves" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMax slice">
-    <defs>
-      <pattern id="seigaiha" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
-        <path d="M 0 20 C 10 4 30 4 40 20" fill="none" stroke="currentColor" stroke-width="0.6"/>
-        <path d="M -20 20 C -10 4 10 4 20 20" fill="none" stroke="currentColor" stroke-width="0.6"/>
-        <path d="M 20 20 C 30 4 50 4 60 20" fill="none" stroke="currentColor" stroke-width="0.6"/>
-        <path d="M 0 36 C 10 20 30 20 40 36" fill="none" stroke="currentColor" stroke-width="0.6"/>
-        <path d="M -20 36 C -10 20 10 20 20 36" fill="none" stroke="currentColor" stroke-width="0.6"/>
-        <path d="M 20 36 C 30 20 50 20 60 36" fill="none" stroke="currentColor" stroke-width="0.6"/>
-      </pattern>
-    </defs>
-    <rect x="0" y="0" width="100%" height="100%" fill="url(#seigaiha)"/>
-  </svg>
-
   <!-- Drifting ink-wash clouds (sumi-e atmospheric washes) -->
   <div class="cloud cloud--1"></div>
   <div class="cloud cloud--2"></div>
@@ -54,8 +39,6 @@
   <!-- Slow-floating golden sparks / fireflies -->
   <span class="spark spark--1"></span>
   <span class="spark spark--2"></span>
-  <span class="spark spark--3"></span>
-  <span class="spark spark--4"></span>
 
 </div>
 
@@ -71,6 +54,10 @@
     <a href="#kansai">Kansai</a>
     <a href="#moving">Moving</a>
     <a href="#essentials">Essentials</a>
+    <a class="topbar__dl" href="japan-itinerary.xlsx" download title="Download Excel quick-reference">
+      <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M8 1v10m0 0l-4-4m4 4l4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      .xlsx
+    </a>
   </div>
 </nav>
 
@@ -1306,6 +1293,18 @@
   <p class="eyebrow">Part Four</p>
   <h2>Essentials <em>&amp;</em><br>a short list.</h2>
   <p class="lede">A checklist of what needs doing before you fly, what apps belong on your phone, and a small handful of phrases worth learning by heart.</p>
+
+  <a class="download-card" href="japan-itinerary.xlsx" download>
+    <div class="download-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3v13m0 0l-5-5m5 5l5-5M4 21h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="download-card__body">
+      <div class="download-card__kicker">Quick reference · Excel</div>
+      <div class="download-card__title">The whole trip on three tabs.</div>
+      <div class="download-card__desc">A simple <strong>.xlsx</strong> — one row per day, a reservations checklist, and the transit table. For your phone's Files app, for a printout on the kitchen table, for the flight.</div>
+    </div>
+    <div class="download-card__cta">Download →</div>
+  </a>
 
   <h3>Reservations to <em>make now</em></h3>
   <p>These are the only things in the itinerary that are genuinely hard to book. Handle them first.</p>

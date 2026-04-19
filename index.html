@@ -12,6 +12,19 @@
 </head>
 <body>
 
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__fill" id="sp-fill"></div></div>
+
+<!-- AMBIENT BACKGROUND GRAPHICS -->
+<div class="ambient" aria-hidden="true">
+  <svg class="petal petal--1" viewBox="0 0 100 100"><path d="M50 6 C30 28 28 58 46 72 L50 68 L54 72 C72 58 70 28 50 6 Z"/></svg>
+  <svg class="petal petal--2" viewBox="0 0 100 100"><path d="M50 6 C30 28 28 58 46 72 L50 68 L54 72 C72 58 70 28 50 6 Z"/></svg>
+  <svg class="petal petal--3" viewBox="0 0 100 100"><path d="M50 6 C30 28 28 58 46 72 L50 68 L54 72 C72 58 70 28 50 6 Z"/></svg>
+  <svg class="petal petal--4" viewBox="0 0 100 100"><path d="M50 6 C30 28 28 58 46 72 L50 68 L54 72 C72 58 70 28 50 6 Z"/></svg>
+  <svg class="petal petal--5" viewBox="0 0 100 100"><path d="M50 6 C30 28 28 58 46 72 L50 68 L54 72 C72 58 70 28 50 6 Z"/></svg>
+  <svg class="petal petal--6" viewBox="0 0 100 100"><path d="M50 6 C30 28 28 58 46 72 L50 68 L54 72 C72 58 70 28 50 6 Z"/></svg>
+</div>
+
 <!-- FLOATING NAV -->
 <nav class="topbar">
   <a class="topbar__mark" href="#top">
@@ -19,6 +32,7 @@
     <span>Anushka &amp; Robin · May 2026</span>
   </a>
   <div class="topbar__links">
+    <a href="#overview">Overview</a>
     <a href="#tokyo">Tokyo</a>
     <a href="#kansai">Kansai</a>
     <a href="#moving">Moving</a>
@@ -28,7 +42,7 @@
 
 <!-- COVER -->
 <header class="cover" id="top">
-  <div class="cover__watermark">旅</div>
+  <div class="cover__watermark" data-parallax="0.25">旅</div>
   <div class="cover__vertical">春 日本 千里</div>
 
   <div class="cover__masthead">
@@ -56,7 +70,12 @@
     </div>
   </div>
 
-  <div class="seal-stamp">旅</div>
+  <div class="seal-stamp" title="旅 · tabi · journey">旅</div>
+
+  <div class="cover__scrollcue" aria-hidden="true">
+    <span>Read on</span>
+    <svg viewBox="0 0 14 40"><line x1="7" y1="2" x2="7" y2="38" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4"/><polyline points="3,30 7,36 11,30" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+  </div>
 </header>
 
 <!-- CONCIERGE LETTER -->
@@ -72,7 +91,12 @@
   </div>
 </section>
 
-<hr class="rule" style="max-width: 720px; margin: 0 auto;">
+<!-- Hand-painted divider -->
+<div class="brush-divider reveal" aria-hidden="true">
+  <svg viewBox="0 0 800 36" preserveAspectRatio="none">
+    <path d="M20 20 C 160 8, 320 30, 480 18 S 720 8, 780 22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+</div>
 
 <!-- AT A GLANCE -->
 <section class="page page--narrow reveal">
@@ -87,15 +111,15 @@
     </div>
     <div class="glance__cell">
       <div class="label">Stay · Osaka</div>
-      <h4>The St. Regis Osaka</h4>
-      <p>Five nights · May 17 – 22 · Butler service on every floor in Honmachi, ten minutes on foot from the neon of Dotonbori.<br><em style="font-size: 0.85rem;">(Swap for your booked property if you've chosen differently.)</em></p>
+      <h4>The Osaka Station Hotel, Autograph Collection</h4>
+      <p>Five nights · May 17 – 22 · A quiet tower woven directly into Osaka Station — four minutes on JR from the Shinkansen platform at Shin-Osaka, and every day trip in this itinerary leaves from your elevator.</p>
     </div>
   </div>
 
   <div class="glance-row">
     <div>
       <div class="label" style="font-size: 0.64rem; letter-spacing: 0.28em; color: var(--ink-mute); font-family: var(--label); text-transform: uppercase; margin-bottom: 0.4rem;">Arrive</div>
-      <div style="font-family: var(--serif); font-size: 1.1rem;">Tokyo · May 12</div>
+      <div style="font-family: var(--serif); font-size: 1.1rem;">Narita · May 12</div>
     </div>
     <div>
       <div class="label" style="font-size: 0.64rem; letter-spacing: 0.28em; color: var(--ink-mute); font-family: var(--label); text-transform: uppercase; margin-bottom: 0.4rem;">Transit</div>
@@ -103,18 +127,128 @@
     </div>
     <div>
       <div class="label" style="font-size: 0.64rem; letter-spacing: 0.28em; color: var(--ink-mute); font-family: var(--label); text-transform: uppercase; margin-bottom: 0.4rem;">Home to Denver</div>
-      <div style="font-family: var(--serif); font-size: 1.1rem;">Tokyo · May 22</div>
+      <div style="font-family: var(--serif); font-size: 1.1rem;">Narita · May 22</div>
     </div>
   </div>
+</section>
 
-  <p class="diamond-sep">❖ &nbsp; ◆ &nbsp; ❖</p>
+<!-- ELEVEN DAYS · OVERVIEW / LANDING GRID -->
+<section id="overview" class="overview reveal">
+  <div class="overview__header">
+    <p class="eyebrow eyebrow--ink">The Eleven Days</p>
+    <h2 class="overview__h2">An overview, <em>before the details.</em></h2>
+    <p class="overview__intro">Every card opens the full day. Dive in anywhere — the document is built to be read sideways.</p>
+  </div>
+
+  <div class="days-grid">
+    <a class="day-card" href="#day-1" style="--i: 0;">
+      <span class="dc-region">Tokyo · Part I</span>
+      <span class="dc-kanji">一</span>
+      <span class="dc-date">Tue · May 12</span>
+      <h3 class="dc-theme">A soft landing.</h3>
+      <p>Arrival at Kioicho, vermilion torii at Hie Shrine, tonkatsu on a wooden tray.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card" href="#day-2" style="--i: 1;">
+      <span class="dc-region">Tokyo</span>
+      <span class="dc-kanji">二</span>
+      <span class="dc-date">Wed · May 13</span>
+      <h3 class="dc-theme">Classic Tokyo, unrushed.</h3>
+      <p>Meiji's forest, Harajuku's quiet lanes, Shibuya Crossing at dusk.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card" href="#day-3" style="--i: 2;">
+      <span class="dc-region">Tokyo</span>
+      <span class="dc-kanji">三</span>
+      <span class="dc-date">Thu · May 14</span>
+      <h3 class="dc-theme">A day at sea.</h3>
+      <p>Tokyo DisneySea — Fantasy Springs, Sinbad's voyage, fireworks on the harbor.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card day-card--feature" href="#day-4" style="--i: 3;">
+      <span class="dc-region">Tokyo · Michelin ★★</span>
+      <span class="dc-kanji">四</span>
+      <span class="dc-date">Fri · May 15</span>
+      <h3 class="dc-theme">Old Tokyo, a kitchen, a great dinner.</h3>
+      <p>A private cooking class, Yanaka's lantern-lit lanes, and an evening at Den.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card" href="#day-5" style="--i: 4;">
+      <span class="dc-region">Tokyo</span>
+      <span class="dc-kanji">五</span>
+      <span class="dc-date">Sat · May 16</span>
+      <h3 class="dc-theme">Bright pleasures.</h3>
+      <p>Pokémon, Nintendo, a pink Kirby Café lunch, and teamLab Borderless after dark.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card" href="#day-6" style="--i: 5;">
+      <span class="dc-region">Tokyo → Osaka</span>
+      <span class="dc-kanji">六</span>
+      <span class="dc-date">Sun · May 17</span>
+      <h3 class="dc-theme">Shinkansen to Osaka.</h3>
+      <p>A Nozomi-bound morning, then neon Dotonbori by the piece.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card day-card--feature" href="#day-7" style="--i: 6;">
+      <span class="dc-region">Kansai · Michelin ★★★</span>
+      <span class="dc-kanji">七</span>
+      <span class="dc-date">Mon · May 18</span>
+      <h3 class="dc-theme">Kyoto, the first time.</h3>
+      <p>Fushimi Inari at dawn, Gion's willows, Kikunoi kaiseki at sundown.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card" href="#day-8" style="--i: 7;">
+      <span class="dc-region">Kansai</span>
+      <span class="dc-kanji">八</span>
+      <span class="dc-date">Tue · May 19</span>
+      <h3 class="dc-theme">Bamboo &amp; a golden pavilion.</h3>
+      <p>Arashiyama, Tenryū-ji's garden, matcha on the Philosopher's Path.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card" href="#day-9" style="--i: 8;">
+      <span class="dc-region">Nara &amp; Osaka</span>
+      <span class="dc-kanji">九</span>
+      <span class="dc-date">Wed · May 20</span>
+      <h3 class="dc-theme">Bowing deer, afternoon off.</h3>
+      <p>Nara's deer and the Great Buddha, then the whole afternoon yours to spend.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card" href="#day-10" style="--i: 9;">
+      <span class="dc-region">Osaka</span>
+      <span class="dc-kanji">十</span>
+      <span class="dc-date">Thu · May 21</span>
+      <h3 class="dc-theme">Mario's own park.</h3>
+      <p>Super Nintendo World — Mario Kart, Yoshi, and okonomiyaki to close.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+
+    <a class="day-card" href="#day-11" style="--i: 10;">
+      <span class="dc-region">Osaka → Home</span>
+      <span class="dc-kanji">十一</span>
+      <span class="dc-date">Fri · May 22</span>
+      <h3 class="dc-theme">Home, via Tokyo.</h3>
+      <p>A Nozomi morning, a Kit Kat flight pack, wheels up from Narita.</p>
+      <span class="dc-cta">Read the day <span class="dc-arrow">→</span></span>
+    </a>
+  </div>
+
+  <p class="overview__foot">Below, each day, in full.</p>
 </section>
 
 <!-- ================= TOKYO ================= -->
 <section id="tokyo">
 
 <div class="chapter-opening">
-  <div class="chapter-opening__watermark">東</div>
+  <div class="chapter-opening__watermark" data-parallax="0.2">東</div>
   <div class="chapter-opening__inner">
     <p class="eyebrow">Part One · Five Nights</p>
     <h2>Tokyo<em>,</em><br>up close.</h2>
@@ -138,33 +272,33 @@
 
   <div class="day__main">
     <h3 class="day__title">Arrival in <em>Kioicho</em>.</h3>
-    <p class="day__lede">You'll land somewhere between morning and afternoon. The hotel is a quiet tower above Akasaka, and your first hour in Japan should be spent doing almost nothing — a hot bath, a window view, a walk to the nearest shrine. Save the famous sights for tomorrow; Japan is more generous when you meet it rested.</p>
+    <p class="day__lede">You'll land at Narita in the afternoon. The hotel is a quiet tower above Akasaka, and your first hour in Japan should be spent doing almost nothing — unpacking, a window view, a walk to the nearest shrine. Save the famous sights for tomorrow; Japan is more generous when you meet it rested.</p>
 
     <ul class="tl">
       <li>
         <span class="time">On arrival</span>
         <div>
-          <h4>Airport to Kioicho <em>— by Limousine Bus or private car</em></h4>
-          <p>From Haneda: 45 minutes by Airport Limousine Bus direct to <strong>The Prince Gallery Tokyo Kioicho</strong>. From Narita: 90 minutes. A pre-booked private sedan is the gentlest option after a long flight — the concierge at the hotel can arrange this in advance.</p>
+          <h4>Narita to Kioicho <em>— by Airport Limousine Bus or private car</em></h4>
+          <p>The easiest option after a long flight is a <strong>pre-booked private sedan</strong> — roughly 90 minutes door to door, ~¥28,000, arranged through the hotel concierge in advance. Otherwise, the <strong>Airport Limousine Bus</strong> from Narita runs directly to <strong>The Prince Gallery Tokyo Kioicho</strong> — 90 minutes, ¥3,600 per person, with luggage handled for you. Skip the Narita Express if you'd rather not change at Tokyo Station with bags.</p>
           <span class="note">Before you leave the airport: buy a bottle of water, a melon pan from Lawson, and activate your Suica card on your iPhone Wallet. (See Moving Through Japan, below.)</span>
         </div>
       </li>
       <li>
-        <span class="time">16:00</span>
+        <span class="time">17:00</span>
         <div>
-          <h4>Check in &amp; a long bath</h4>
-          <p>Ask for a room facing the Imperial Palace grounds. The public bath on floor 30 has a view no photograph does justice to. Unpack slowly.</p>
+          <h4>Check in &amp; settle</h4>
+          <p>Ask for a room facing the Imperial Palace grounds. Unpack slowly. A room-service pot of hōjicha if the kettle isn't calling to you.</p>
         </div>
       </li>
       <li>
-        <span class="time">17:30</span>
+        <span class="time">18:00</span>
         <div>
           <h4>A short pilgrimage — <em>Hie Shrine</em> <span class="pin">5 min on foot</span></h4>
           <p>Just below the hotel, down a long arcade of vermilion torii gates banking up the hillside. It is still, usually empty at this hour, and exactly the right way to arrive in Japan — by passing beneath a hundred gates you didn't have to queue for. Ring the bell, clap twice, bow, and you're in.</p>
         </div>
       </li>
       <li>
-        <span class="time">19:00</span>
+        <span class="time">19:30</span>
         <div>
           <h4>First dinner — <em>tonkatsu at a counter</em></h4>
           <p><strong>Butagumi Shokudo</strong> in Roppongi (15 minutes by taxi) serves the platonic ideal of a crispy pork cutlet on a plain wooden tray: rice, miso, shredded cabbage, pickles. Order the <em>rosu</em> (fatty) and <em>hire</em> (lean) to compare. ¥2,000 per person and no reservations. A first meal that is all comfort, no ceremony.</p>
@@ -209,7 +343,7 @@
         <span class="time">07:30</span>
         <div>
           <h4>Breakfast — <em>tamagoyaki and a melon</em></h4>
-          <p>Take the Marunouchi Line two stops to <strong>Tsukiji Outer Market</strong> (not Toyosu — that's the wholesale fish auction). It opens at dawn. Buy a grilled tamagoyaki skewer at <strong>Marutake</strong>, a tuna hand roll at <strong>Kitsuneya</strong>, and a half-melon for dessert at the fruit stand. Eat standing up.</p>
+          <p>Take the Marunouchi Line two stops to <strong>Tsukiji Outer Market</strong> (not Toyosu — that's the wholesale fish auction). It opens at dawn. Buy a grilled <strong>tamagoyaki</strong> skewer at <strong>Marutake</strong>, a fresh fruit sandwich at <strong>Sembikiya</strong>, and a half-melon for dessert at the fruit stand. Eat standing up.</p>
           <span class="note">By 09:30 the tour groups arrive — we'll already be on the train.</span>
         </div>
       </li>
@@ -224,7 +358,7 @@
         <span class="time">11:30</span>
         <div>
           <h4><em>Takeshita-dori</em> &amp; <em>Cat Street</em> <span class="pin">for Anushka</span></h4>
-          <p>Come out the south gate and into Harajuku. Ten minutes on Takeshita Street is enough — the tourist rainbow crêpe, the crepe, the photographs — then duck onto <strong>Cat Street</strong> behind it for the quiet vintage shops, pottery boutiques, and the <strong>Flying Tiger</strong> craft-supply wonderland that Anushka will not want to leave.</p>
+          <p>Come out the south gate and into Harajuku. Ten minutes on Takeshita Street is enough — the tourist rainbow crêpe, the photographs — then duck onto <strong>Cat Street</strong> behind it for the quiet vintage shops, pottery boutiques, and the <strong>Flying Tiger</strong> craft-supply wonderland that Anushka will not want to leave.</p>
         </div>
       </li>
       <li>
@@ -253,7 +387,7 @@
         <span class="time">19:00</span>
         <div>
           <h4>Dinner — <em>Omoide Yokocho</em></h4>
-          <p>Two subway stops north to Shinjuku. <strong>"Memory Lane"</strong> is a narrow alley of yakitori stalls from the 1950s, smoky and glowing under red lanterns. Sit at <strong>Kabuto</strong> (five seats, eel skewers — unforgettable) or <strong>Asadachi</strong> (all parts of the chicken, fearless). Eat with your hands.</p>
+          <p>Two subway stops north to Shinjuku. <strong>"Memory Lane"</strong> is a narrow alley of yakitori stalls from the 1950s, smoky and glowing under red lanterns. Sit at <strong>Kabuto</strong> (five seats, grilled eel skewers — unforgettable) and order their set menu. Eat with your hands.</p>
           <span class="note">Cash only in most stalls. ¥3,000 – ¥5,000 per person.</span>
         </div>
       </li>
@@ -338,7 +472,7 @@
         <span class="time">21:30</span>
         <div>
           <h4>Home slowly</h4>
-          <p>Skip one last ride. Buy a popcorn bucket to carry back. Taxi to Kioicho, feet up, tub on.</p>
+          <p>Skip one last ride. Buy a popcorn bucket to carry back. Taxi to Kioicho and put your feet up.</p>
         </div>
       </li>
     </ul>
@@ -486,7 +620,7 @@
         <span class="time">18:30</span>
         <div>
           <h4><em>teamLab Borderless</em> — the reopened museum</h4>
-          <p>A 90-minute labyrinth of projections, mirrored rooms, and digital flowers that bloom where you stand and follow you between rooms. There is no map. Wear a dress or skirt the color of the walls and you'll see why it's worth it. Book the <strong>last evening slot of the day</strong> — the galleries are noticeably emptier after 18:00.</p>
+          <p>A 90-minute labyrinth of projections, mirrored rooms, and digital flowers that bloom where you stand and follow you between rooms. There is no map. Wear a light color and you'll see why it's worth it. Book the <strong>last evening slot of the day</strong> — the galleries are noticeably emptier after 18:00.</p>
           <span class="note">¥5,800 per person. Book on <a href="https://www.teamlab.art/e/borderless-azabudai/" target="_blank" rel="noopener">teamlab.art</a> two weeks ahead. The shoe lockers are your friend.</span>
         </div>
       </li>
@@ -508,10 +642,10 @@
 
 </section>
 
-<!-- ============== INTERLUDE / TRANSIT ============== -->
+<!-- ============== KANSAI ============== -->
 <section id="kansai">
 <div class="chapter-opening">
-  <div class="chapter-opening__watermark">西</div>
+  <div class="chapter-opening__watermark" data-parallax="0.2">西</div>
   <div class="chapter-opening__inner">
     <p class="eyebrow">Part Two · Five Nights</p>
     <h2>Kansai<em>,</em><br>older.</h2>
@@ -570,15 +704,15 @@
       <li>
         <span class="time">15:00</span>
         <div>
-          <h4>Arrive Shin-Osaka — transfer to the hotel</h4>
-          <p>10 minutes by taxi to <strong>The St. Regis Osaka</strong>. Check in. Butler service on every floor. Breathe.</p>
+          <h4>Arrive Shin-Osaka — <em>one JR stop to your hotel</em></h4>
+          <p>Four minutes south on JR to <strong>Osaka Station</strong>. <strong>The Osaka Station Hotel, Autograph Collection</strong> is reached from the station concourse without ever stepping outside — the elevators are signed in English and take you straight up. Check in. Breathe.</p>
         </div>
       </li>
       <li>
         <span class="time">17:30</span>
         <div>
-          <h4>A walk into <em>Dotonbori</em></h4>
-          <p>10 minutes on foot. Osaka announces itself in neon — the running Glico man, the mechanical crab, the pufferfish lantern the size of a family car. This is the street you came for.</p>
+          <h4>Into <em>Dotonbori</em> — Midosuji Line to Namba</h4>
+          <p>The Midosuji subway entrance is inside the station, directly below the hotel. Six stops, ten minutes, ¥240. Osaka announces itself in neon — the running Glico man, the mechanical crab, billboards the size of billboards. This is the street you came for.</p>
         </div>
       </li>
       <li>
@@ -588,7 +722,7 @@
           <p>Not one dinner — five small ones, in any order:</p>
           <p>· <strong>Takoyaki</strong> at <strong>Kukuru</strong> (the one with the giant octopus over the door).<br>
              · <strong>Okonomiyaki</strong> at <strong>Mizuno</strong> — Bib Gourmand, third generation, the yamaimo-baked version.<br>
-             · <strong>Kushikatsu</strong> (fried skewers) at <strong>Daruma</strong> — original Shinsekai location if you have the energy, or the Dotonbori branch if you don't.<br>
+             · <strong>Kushikatsu</strong> (panko-fried skewers of vegetables &amp; pork) at <strong>Daruma</strong> — original Shinsekai location if you have the energy, or the Dotonbori branch if you don't.<br>
              · A <strong>Horai 551 pork bun</strong> to go, from the stall inside Namba station.<br>
              · For dessert: <strong>Pablo</strong> half-baked cheesecake, or Rikuro Ojisan's original ¥965 cheesecake, still warm.</p>
           <span class="note">Do not queue for anything over 30 minutes. Osaka will hand you the same food six doors down.</span>
@@ -618,14 +752,14 @@
 
   <div class="day__main">
     <h3 class="day__title">Fushimi Inari <em>before breakfast</em>; Kyoto after.</h3>
-    <p class="day__lede">The secret to Kyoto is to be awake earlier than the tour buses. We'll catch the 07:00 JR rapid to the Fushimi Inari shrine, walk the torii gates in the pale morning, and be back in central Kyoto for a late breakfast before most visitors have finished theirs. The rest of the day unfolds in Gion's lanes, ends with an arrival-by-taxi at <strong>Kikunoi</strong> — a three-Michelin-star kaiseki table in a house from 1912, which is the dinner you'll want to tell people about for years.</p>
+    <p class="day__lede">The secret to Kyoto is to be awake earlier than the tour buses. We'll catch the 07:00 JR Special Rapid from Osaka Station (downstairs from your room, conveniently) to Kyoto, hop the Nara Line two stops south to Fushimi Inari, walk the torii gates in the pale morning, and be back in central Kyoto for a late breakfast before most visitors have finished theirs. The rest of the day unfolds in Gion's lanes, ends with an arrival-by-taxi at <strong>Kikunoi</strong> — a three-Michelin-star kaiseki table in a house from 1912, which is the dinner you'll want to tell people about for years.</p>
 
     <ul class="tl">
       <li>
-        <span class="time">06:45</span>
+        <span class="time">07:00</span>
         <div>
-          <h4>Taxi to Shin-Osaka, <em>JR Special Rapid</em> to Kyoto</h4>
-          <p>~¥570 and 28 minutes. Your IC card works. Get out, catch the Nara Line two stops south to <strong>Inari Station</strong>.</p>
+          <h4><em>JR Special Rapid</em> to Kyoto — straight from the hotel</h4>
+          <p>Take the elevator down from the Osaka Station Hotel directly to the JR platforms. Special Rapid to Kyoto is 28 minutes, ¥580, tap your Suica — no ticket counter. Change to the Nara Line at Kyoto; two stops south to <strong>Inari Station</strong>.</p>
         </div>
       </li>
       <li>
@@ -653,7 +787,7 @@
         <span class="time">13:30</span>
         <div>
           <h4>Lunch at <em>Nishiki Market</em> <span class="pin">Kyoto's kitchen</span></h4>
-          <p>A narrow covered market five blocks long, 400 years in business. Eat one thing at each stall as you move north: <strong>tako tamago</strong> (baby octopus stuffed with quail egg), <strong>yuba</strong> (tofu skin) at Yuba Yoshi, a skewer of <strong>hamo</strong> (pike conger), <strong>matcha warabi mochi</strong> at Nagatamachi, <strong>black sesame soft serve</strong> at Konnamonja.</p>
+          <p>A narrow covered market five blocks long, 400 years in business. Eat one thing at each stall as you move north: a warm <strong>dashimaki tamago</strong> (rolled omelet) at Miki Keiran, <strong>yuba</strong> (tender tofu skin) at Yuba Yoshi, a skewer of grilled chicken, <strong>matcha warabi mochi</strong> at Nagatamachi, <strong>black sesame soft serve</strong> at Konnamonja.</p>
           <span class="note">A pair of free hours after this — shops, the river, Ponto-chō lane.</span>
         </div>
       </li>
@@ -661,14 +795,14 @@
         <span class="time">16:00</span>
         <div>
           <h4>An unhurried walk through <em>Gion</em></h4>
-          <p>Down <strong>Hanami-koji</strong> and the willows of <strong>Shirakawa</strong>. If you see a geiko walking quickly between tea houses at dusk, she is headed to work and you will not be the first person to try to photograph her (please don't). The magic here is not the celebrity-sightings — it's the wooden walls, the darkening sky, and the lantern-lit stone bridge across the Shirakawa stream.</p>
+          <p>Down <strong>Hanami-koji</strong> and the willows of <strong>Shirakawa</strong>. If you see a geiko walking quickly between tea houses at dusk, she is headed to work — please don't photograph her. The magic here is not the celebrity-sightings; it's the wooden walls, the darkening sky, and the lantern-lit stone bridge across the Shirakawa stream.</p>
         </div>
       </li>
       <li>
         <span class="time">18:00</span>
         <div>
           <h4><em>Dinner at</em> Kikunoi Honten <em>— Michelin ★★★</em></h4>
-          <p>The old house in eastern Kyoto that defines modern kaiseki. Chef Yoshihiro Murata has trained most of the kaiseki chefs of your generation — and his own son runs the kitchen now, in service of a tasting menu that moves with the season. For May: a clear soup with hamo pike, young bamboo, fava beans, sweetfish from the river, the first peaches. Eight or nine courses, each a small painting.</p>
+          <p>The old house in eastern Kyoto that defines modern kaiseki. Chef Yoshihiro Murata has trained most of the kaiseki chefs of your generation — and his own son runs the kitchen now, in service of a tasting menu that moves with the season. For May: a clear soup with young bamboo, fava beans, seasonal river fish, the first peaches. Eight or nine courses, each a small painting.</p>
           <span class="note">¥44,000 per person (¥48,000 on weekends). Book <strong>via the hotel concierge at least 60 days ahead</strong>, or by email to the restaurant directly. Roughly 2.5 hours. Smart dress. Closed irregular Tuesdays — confirm your date.</span>
         </div>
       </li>
@@ -676,7 +810,7 @@
         <span class="time">21:30</span>
         <div>
           <h4>Back to Osaka</h4>
-          <p>Taxi to Kyoto Station, Shinkansen or JR Special Rapid back to Shin-Osaka. 45 minutes door to door. Ride home in the happy daze of a long meal.</p>
+          <p>Taxi to Kyoto Station, JR Special Rapid back to Osaka Station, elevator up. 45 minutes door to door. Ride home in the happy daze of a long meal.</p>
         </div>
       </li>
     </ul>
@@ -705,7 +839,7 @@
         <span class="time">07:30</span>
         <div>
           <h4>JR to <em>Saga-Arashiyama</em></h4>
-          <p>~60 minutes, any combination of trains through Osaka and Kyoto. The bamboo grove is a 10-minute walk from the station.</p>
+          <p>Direct from Osaka Station — the JR Sagano Line, one train, ~55 minutes. The bamboo grove is a 10-minute walk from the station.</p>
         </div>
       </li>
       <li>
@@ -762,7 +896,7 @@
         <span class="time">19:00</span>
         <div>
           <h4>Back to Osaka; quiet dinner near the hotel</h4>
-          <p>You will be tired. <strong>Honke Owariya</strong> has a branch near Namba — Kyoto soba, since you're in the mood. Or ask the concierge for a neighborhood kappo counter within ten minutes on foot.</p>
+          <p>You will be tired. <strong>Honke Owariya</strong> has a branch near Umeda — Kyoto soba, since you're in the mood. Or ask the concierge for a neighborhood kappo counter within ten minutes on foot.</p>
         </div>
       </li>
     </ul>
@@ -789,13 +923,13 @@
 
   <div class="day__main">
     <h3 class="day__title"><em>Nara</em> in the morning; an Osaka afternoon of your own.</h3>
-    <p class="day__lede">An unapologetically cute morning — Nara's sacred deer are semi-wild, will bow for a shika-senbei cracker, and outnumber the tourists before 11:00. After the deer, the Great Buddha: a fifteen-meter-tall bronze statue in the world's largest wooden building. After that, Osaka is yours. Shop, wander, have a coffee, take a proper bath at the hotel. This is the day I've left you to discover your own Japan.</p>
+    <p class="day__lede">An unapologetically cute morning — Nara's sacred deer are semi-wild, will bow for a shika-senbei cracker, and outnumber the tourists before 11:00. After the deer, the Great Buddha: a fifteen-meter-tall bronze statue in the world's largest wooden building. After that, Osaka is yours. Shop, wander, have a long coffee, an unhurried afternoon in. This is the day I've left you to discover your own Japan.</p>
 
     <ul class="tl">
       <li>
         <span class="time">08:30</span>
         <div>
-          <h4>JR Rapid Service to <em>Nara</em></h4>
+          <h4>JR Yamatoji Rapid to <em>Nara</em> — one train from below the hotel</h4>
           <p>45 minutes from Osaka Station. A quiet train with low farmland through the window. Your IC card pays.</p>
         </div>
       </li>
@@ -811,21 +945,22 @@
         <span class="time">10:30</span>
         <div>
           <h4><em>Tōdai-ji</em> &amp; the Great Buddha</h4>
-          <p>A 15-minute walk through the park. The <em>Daibutsu-den</em> is the world's largest wooden building, and houses a 15-meter seated bronze Buddha cast in 752. Look for the small hole in one of the pillars behind the Buddha — the same size as the Buddha's nostril — which, locals say, you can crawl through for enlightenment. Children can. You can try.</p>
+          <p>A 15-minute walk through the park. The <em>Daibutsu-den</em> is the world's largest wooden building, and houses a 15-meter seated bronze Buddha cast in 752. Look for the small hole at the base of one of the pillars behind the Buddha — school children crawl through it for luck. You can too.</p>
         </div>
       </li>
       <li>
         <span class="time">12:00</span>
         <div>
-          <h4>Lunch — <em>kakinoha-zushi at Nakatanidō</em></h4>
-          <p>Mochi pounded by hand in front of you — the stall's performance is famous. Then a tray of <strong>kakinoha-zushi</strong> — pressed sushi wrapped in persimmon leaves — at <strong>Hiraso</strong> nearby. A Nara specialty; it travels well; buy a second set for the train.</p>
+          <h4>Lunch — <em>kakinoha-zushi at Hiraso</em></h4>
+          <p>Pressed mackerel and salmon sushi wrapped in persimmon leaves — a Nara specialty, mild and beautifully made. <strong>Hiraso</strong>, a 15-minute walk from Tōdai-ji, is the place. Buy a second tray for the train.</p>
+          <span class="note">Before lunch: mochi pounded by hand in front of you at <strong>Nakatanidō</strong> — the stall's performance is famous, the mochi is warm, and they sell out by 14:00.</span>
         </div>
       </li>
       <li>
         <span class="time">14:30</span>
         <div>
           <h4>Back to Osaka</h4>
-          <p>JR to Namba. Hotel. Feet up.</p>
+          <p>JR to Osaka Station. Hotel. Feet up.</p>
         </div>
       </li>
       <li>
@@ -833,18 +968,18 @@
         <div>
           <h4>Afternoon — <em>yours</em></h4>
           <p>Some suggestions, if you want them:</p>
-          <p>· <strong>Shinsaibashi-suji</strong>, the 600-meter covered arcade, for Anushka's stationery / Uniqlo / Muji / drugstore-cosmetics pilgrimage.<br>
-            · <strong>Amerikamura</strong>, just west — vintage, skate shops, a fat slice of American-Japanese pop in miniature.<br>
+          <p>· <strong>Shinsaibashi-suji</strong>, the 600-meter covered arcade, for Anushka's stationery / Uniqlo / Muji / drugstore-cosmetics pilgrimage — two Midosuji stops south.<br>
+            · <strong>Grand Front Osaka</strong> &amp; <strong>Hankyu Men's Tokyo</strong>, attached directly to the hotel without stepping outside, if the weather doesn't behave.<br>
             · <strong>Orix Buffaloes</strong> play at home in May; a baseball game at Kyocera Dome is surprisingly great and ~¥3,500 a ticket.<br>
-            · The hotel's spa — floor 12 of the St. Regis, by appointment, possibly the best idea of the day.</p>
+            · Or: an afternoon in the hotel lounge, a book, a pot of tea, a nap. Honestly, a good day's work.</p>
         </div>
       </li>
       <li>
         <span class="time">19:30</span>
         <div>
           <h4>Dinner — <em>sushi on a counter</em></h4>
-          <p>A small, hidden Osaka institution: <strong>Sushi Harasho</strong> in Fukushima. Ten seats, ¥15,000 omakase, the kind of place Osakans quietly argue is better than half of Tokyo's stars. Book two weeks ahead through the hotel.</p>
-          <span class="note">Alternative: <strong>Endō Sushi</strong> at the central fish market — seven pieces, ¥1,500, open since 1907, closed by 14:00 so this is a tomorrow idea.</span>
+          <p>A small, hidden Osaka institution: <strong>Sushi Harasho</strong> in Fukushima — three JR stops from the hotel. Ten seats, ¥15,000 omakase, the kind of place Osakans quietly argue is better than half of Tokyo's stars. Book two weeks ahead through the hotel.</p>
+          <span class="note">A gentler option, five minutes from the hotel: <strong>Tempura Endo</strong> at Grand Front — tempura at a counter, ¥8,000, fewer moving parts after a travel-heavy week.</span>
         </div>
       </li>
     </ul>
@@ -877,8 +1012,8 @@
       <li>
         <span class="time">07:30</span>
         <div>
-          <h4>Taxi or Metro to <em>Universal City Station</em></h4>
-          <p>20 minutes. The park gates open at 08:30 on weekdays; you want to be there by 08:15.</p>
+          <h4><em>JR Yumesaki Line</em> to Universal City — direct from the hotel</h4>
+          <p>Take the JR platforms below the Osaka Station Hotel: 12 minutes, ¥190, no transfers. Park gates open at 08:30 on weekdays; you want to be at the turnstiles by 08:15.</p>
         </div>
       </li>
       <li>
@@ -919,8 +1054,8 @@
       <li>
         <span class="time">16:30</span>
         <div>
-          <h4>Park exit — <em>a long soak at the hotel</em></h4>
-          <p>Back by 17:00. You've earned the bath.</p>
+          <h4>Park exit — <em>back to the hotel, feet up</em></h4>
+          <p>Twelve minutes home on the JR. You've earned the rest.</p>
         </div>
       </li>
       <li>
@@ -934,7 +1069,7 @@
 
     <div class="callout callout--gold">
       <div class="callout__label">Tomorrow's train</div>
-      <p>Pack tonight. Your Shinkansen to Tokyo tomorrow morning leaves from Shin-Osaka at roughly 08:00; Yamato will happily forward a bag to the airport this afternoon instead of next morning if you prefer to travel light.</p>
+      <p>Pack tonight. Your Shinkansen to Tokyo tomorrow morning leaves from Shin-Osaka at roughly 08:00; Yamato will happily forward a bag to Narita airport this afternoon instead of next morning if you prefer to travel light.</p>
     </div>
   </div>
 </article>
@@ -953,30 +1088,29 @@
   </aside>
 
   <div class="day__main">
-    <h3 class="day__title">Nozomi to Tokyo; <em>wheels up</em>.</h3>
-    <p class="day__lede">A fast, clean travel day. The timing below assumes an afternoon or early-evening departure from Haneda or Narita; your concierge will confirm the specifics once your flight time is shared. The one thing I'd add: pick up a <em>Kit Kat green-tea flight pack</em> at the Shin-Osaka station gift floor. It is the single best airport souvenir in Japan.</p>
+    <h3 class="day__title">Nozomi to Tokyo; <em>Narita, wheels up</em>.</h3>
+    <p class="day__lede">A fast, clean travel day. The timing below assumes an afternoon or early-evening departure from Narita; your concierge will confirm the specifics once your flight time is shared. The one thing I'd add: pick up a <em>Kit Kat green-tea flight pack</em> at the Shin-Osaka station gift floor. It is the single best airport souvenir in Japan.</p>
 
     <ul class="tl">
       <li>
         <span class="time">06:30</span>
         <div>
           <h4>Breakfast — <em>the hotel's set, to go</em></h4>
-          <p>Or, if an earlier train is needed: onigiri, a yogurt, and an iced coffee from the Lawson across the street. Authentic, efficient, lovely.</p>
+          <p>Or, if an earlier train is needed: onigiri, a yogurt, and an iced coffee from the Lawson in the station concourse, two elevators down. Authentic, efficient, lovely.</p>
         </div>
       </li>
       <li>
         <span class="time">07:15</span>
         <div>
-          <h4>Taxi to <em>Shin-Osaka</em></h4>
-          <p>10 – 15 minutes in morning traffic. Board the 08:00 Nozomi with reserved seats; arrive Shinagawa 10:30.</p>
+          <h4><em>Walk down</em> to the station — JR to Shin-Osaka</h4>
+          <p>Four minutes on JR from Osaka Station directly below the hotel. Board the 08:00 Nozomi with reserved seats; arrive Shinagawa 10:30.</p>
         </div>
       </li>
       <li>
         <span class="time">11:00</span>
         <div>
-          <h4>Transfer to airport</h4>
-          <p>· To <strong>Haneda (HND)</strong>: Keikyu Line from Shinagawa, 20 minutes, ¥330. The easier airport.<br>
-             · To <strong>Narita (NRT)</strong>: Narita Express from Shinagawa, 75 minutes, ¥3,250 reserved. Allow extra padding.</p>
+          <h4>Transfer to <em>Narita</em></h4>
+          <p>The <strong>Narita Express (N'EX)</strong> from Shinagawa runs direct — 75 minutes to the terminal, ¥3,250 with a reserved seat. Book at the JR East counter on arrival at Shinagawa, or on the JR-East Train Reservation app. Aim to be at check-in three hours before your flight.</p>
         </div>
       </li>
       <li>
@@ -994,6 +1128,13 @@
 
 </section>
 
+<!-- Hand-painted divider -->
+<div class="brush-divider reveal" aria-hidden="true">
+  <svg viewBox="0 0 800 36" preserveAspectRatio="none">
+    <path d="M20 20 C 160 8, 320 30, 480 18 S 720 8, 780 22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+</div>
+
 <!-- ============== MOVING THROUGH JAPAN ============== -->
 <section id="moving" class="essentials reveal">
   <p class="eyebrow">Part Three</p>
@@ -1007,13 +1148,13 @@
   <ul>
     <li><strong>Add a Suica card to Apple Wallet</strong> now (iPhone Wallet → "+" → Transit Card → Suica). Takes 60 seconds, costs nothing. Load it with a credit card as you go. Taps onto all trains, buses, vending machines, and most convenience stores. <em>The single most useful thing you will do before this trip.</em></li>
     <li><strong>Pre-authorize your credit cards for Japan</strong> with your bank. Foreign transactions from a sudden location trigger fraud locks more often than people realize.</li>
-    <li><strong>Carry one Visa and one Mastercard.</strong> Amex is accepted at the Prince Gallery, the St. Regis, Kikunoi and Den — and at fewer places in between than you'd assume.</li>
+    <li><strong>Carry one Visa and one Mastercard.</strong> Amex is accepted at the Prince Gallery, the Osaka Station Hotel, Kikunoi and Den — and at fewer places in between than you'd assume.</li>
     <li><strong>No tipping.</strong> Not at restaurants, not in taxis, not at the hotel. Attempting to tip creates small awkwardness. The price is the price.</li>
   </ul>
 
   <h4>Getting yen on the ground</h4>
   <ul>
-    <li><strong>7-Eleven ATMs</strong> (the red one inside every 7-Eleven) accept all foreign cards, run in English, and are everywhere. Japan Post ATMs also. Haneda and Narita both have them airside.</li>
+    <li><strong>7-Eleven ATMs</strong> (the red one inside every 7-Eleven) accept all foreign cards, run in English, and are everywhere. Japan Post ATMs also. Narita has them airside.</li>
     <li>Don't exchange money at the airport counter — the rate is poor. ATMs are 1 – 2% better.</li>
     <li>A ¥10,000 note from an ATM feels very large; break it at a convenience store on a drink or a pack of gum before you need it in a stall.</li>
   </ul>
@@ -1036,9 +1177,9 @@
 
   <h4>In Osaka</h4>
   <ul>
-    <li>The <strong>Midosuji Line</strong> (red) is Osaka's main artery. It connects Shin-Osaka (Shinkansen), Umeda (department stores), Honmachi (St. Regis), Shinsaibashi (shopping), and Namba (Dotonbori) in a single 20-minute stretch.</li>
+    <li>The <strong>Midosuji Line</strong> (red) is Osaka's main artery. The entrance is directly below your hotel. It connects Shin-Osaka (Shinkansen), Umeda (your station and the department stores), Honmachi, Shinsaibashi (shopping), and Namba (Dotonbori) in a single 20-minute stretch.</li>
     <li>Taxis are cheaper than Tokyo's. A Dotonbori-to-hotel ride is ¥1,200 – ¥1,800.</li>
-    <li>Osaka's JR Loop Line also runs everywhere — useful for the day trips to Nara, Kyoto, and USJ.</li>
+    <li>Osaka's JR Loop Line also runs everywhere — useful for the day trips to Nara, Kyoto, and USJ, <em>all of which leave directly from Osaka Station under your feet</em>.</li>
   </ul>
 
   <h4>In Kyoto</h4>
@@ -1091,16 +1232,23 @@
       <tr>
         <td>Osaka ↔ Nara</td>
         <td>JR Yamatoji Rapid</td>
-        <td>35 – 45 min</td>
+        <td>45 min</td>
         <td>¥820</td>
-        <td>From Osaka Station. Quiet; a good day-trip train.</td>
+        <td>Direct from Osaka Station (under the hotel). Quiet; a good day-trip train.</td>
       </tr>
       <tr>
         <td>Osaka ↔ USJ</td>
         <td>JR Yumesaki Line</td>
         <td>12 min</td>
         <td>¥190</td>
-        <td>From Osaka Station to Universal City. Suica.</td>
+        <td>From Osaka Station to Universal City. Suica. Direct.</td>
+      </tr>
+      <tr>
+        <td>Narita ↔ Tokyo</td>
+        <td>Narita Express (N'EX)</td>
+        <td>75 min</td>
+        <td>¥3,250</td>
+        <td>Reserved. Runs to Shinagawa, Tokyo Station, and Shinjuku. Suica-tap, or buy with SmartEX.</td>
       </tr>
     </tbody>
   </table>
@@ -1230,7 +1378,7 @@
 </footer>
 
 <script>
-  // Staggered reveal-on-scroll
+  // --- Staggered reveal-on-scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1240,6 +1388,34 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // --- Scroll progress bar + parallax watermarks (throttled with rAF)
+  const spFill = document.getElementById('sp-fill');
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
+  let ticking = false;
+  function onScroll() {
+    const sy = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docH > 0 ? (sy / docH) * 100 : 0;
+    if (spFill) spFill.style.width = pct + '%';
+    parallaxEls.forEach(el => {
+      const rate = parseFloat(el.dataset.parallax || '0.2');
+      const r = el.getBoundingClientRect();
+      const mid = r.top + r.height / 2 - window.innerHeight / 2;
+      el.style.transform = `translate(-50%, calc(-50% + ${(-mid * rate).toFixed(1)}px))`;
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
+
+  // --- Hero scroll-cue fades out as you start reading
+  const cue = document.querySelector('.cover__scrollcue');
+  if (cue) window.addEventListener('scroll', () => {
+    cue.style.opacity = Math.max(0, 1 - window.scrollY / 300);
+  }, { passive: true });
 </script>
 
 </body>

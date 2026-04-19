@@ -933,7 +933,374 @@ footer small {
 
 /* Print tweaks */
 @media print {
-  .topbar, body::before { display: none; }
+  .topbar, body::before, .ambient, .scroll-progress, .cover__scrollcue { display: none; }
   body { background: white; color: black; }
   .day, section.page, .essentials { page-break-inside: avoid; }
+}
+
+/* ==========================================================
+   MOTION LAYER
+   ========================================================== */
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  z-index: 60;
+  pointer-events: none;
+}
+.scroll-progress__fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--vermilion), var(--gold) 60%, var(--sakura));
+  box-shadow: 0 0 6px rgba(178,67,28,0.4);
+  transition: width 0.12s linear;
+}
+
+/* Ambient — drifting sakura petals */
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.ambient .petal {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  fill: var(--sakura);
+  opacity: 0;
+  filter: drop-shadow(0 1px 1px rgba(178,67,28,0.08));
+}
+@keyframes drift {
+  0%   { transform: translate(0, -12vh) rotate(0deg);    opacity: 0; }
+  8%   {                                                  opacity: 0.35; }
+  92%  {                                                  opacity: 0.35; }
+  100% { transform: translate(12vw, 112vh) rotate(540deg); opacity: 0; }
+}
+.petal--1 { left:  8%; animation: drift 52s linear infinite;              animation-delay: -3s;  width: 20px; }
+.petal--2 { left: 24%; animation: drift 68s linear infinite;              animation-delay: -22s; width: 14px; opacity: 0.25; }
+.petal--3 { left: 42%; animation: drift 74s linear infinite;              animation-delay: -44s; width: 26px; }
+.petal--4 { left: 63%; animation: drift 58s linear infinite;              animation-delay: -14s; width: 18px; }
+.petal--5 { left: 78%; animation: drift 82s linear infinite;              animation-delay: -60s; width: 22px; }
+.petal--6 { left: 92%; animation: drift 64s linear infinite;              animation-delay: -33s; width: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient { display: none; }
+  .scroll-progress__fill { transition: none; }
+  * { animation: none !important; }
+}
+
+/* Hand-painted brush divider */
+.brush-divider {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  color: var(--vermilion);
+  position: relative;
+  z-index: 2;
+  opacity: 0.8;
+}
+.brush-divider svg {
+  width: 100%;
+  height: 34px;
+  display: block;
+}
+.brush-divider path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  transition: stroke-dashoffset 2.2s cubic-bezier(.2,.6,.15,1);
+}
+.brush-divider.in path {
+  stroke-dashoffset: 0;
+}
+
+/* Hero scroll cue */
+.cover__scrollcue {
+  position: absolute;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-mute);
+  font-family: var(--label);
+  font-size: 0.62rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  z-index: 3;
+  transition: opacity 0.4s ease;
+}
+.cover__scrollcue svg {
+  width: 14px;
+  height: 32px;
+  animation: cue-bob 2.6s ease-in-out infinite;
+}
+@keyframes cue-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.85; }
+  50%      { transform: translateY(6px); opacity: 0.55; }
+}
+
+/* Chapter watermark — slow breath (very subtle) */
+.chapter-opening__watermark,
+.cover__watermark {
+  will-change: transform;
+}
+.chapter-opening__watermark {
+  animation: breath 14s ease-in-out infinite;
+}
+@keyframes breath {
+  0%, 100% { filter: none; }
+  50%      { filter: brightness(1.08) contrast(0.98); }
+}
+
+/* Seal stamp — gentle breathing & hover */
+.seal-stamp {
+  transition: transform 0.6s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease;
+  animation: seal-breath 6s ease-in-out infinite;
+}
+@keyframes seal-breath {
+  0%, 100% { transform: rotate(-6deg) scale(1); }
+  50%      { transform: rotate(-6deg) scale(1.04); }
+}
+.seal-stamp:hover {
+  transform: rotate(-3deg) scale(1.08);
+  animation-play-state: paused;
+  cursor: default;
+}
+
+/* ==========================================================
+   OVERVIEW / LANDING GRID
+   ========================================================== */
+
+.overview {
+  max-width: var(--col);
+  margin: 2rem auto 3rem;
+  padding: 5rem 2rem 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.overview__header {
+  max-width: 48rem;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.overview__h2 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 300;
+  line-height: 1.05;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.01em;
+  margin: 0.6rem 0 1.2rem;
+}
+.overview__h2 em {
+  font-family: var(--italic);
+  font-style: italic;
+  color: var(--vermilion);
+}
+
+.overview__intro {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 960px) { .days-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .days-grid { grid-template-columns: 1fr; } }
+
+.day-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.6rem 1.6rem 1.4rem;
+  background: rgba(255, 250, 240, 0.55);
+  border: 0.5px solid var(--rule);
+  border-radius: 2px;
+  color: var(--ink);
+  text-decoration: none;
+  overflow: hidden;
+  transition:
+    transform 0.5s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.5s ease,
+    background 0.5s ease,
+    border-color 0.5s ease;
+  min-height: 220px;
+
+  /* Staggered reveal — keyed by --i custom property */
+  opacity: 0;
+  transform: translateY(18px);
+}
+.reveal.in .day-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.9s ease var(--delay, calc(var(--i, 0) * 0.065s)),
+    transform 0.9s cubic-bezier(.2,.8,.2,1) var(--delay, calc(var(--i, 0) * 0.065s)),
+    box-shadow 0.5s ease,
+    background 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.day-card::before {
+  /* Hairline vermilion accent that extends on hover */
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--vermilion);
+  transition: width 0.6s cubic-bezier(.2,.8,.2,1);
+}
+.day-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 250, 240, 0.9);
+  border-color: var(--gold);
+  box-shadow: 0 18px 40px -24px rgba(26,28,42,0.35), 0 1px 0 rgba(178,67,28,0.08) inset;
+}
+.day-card:hover::before { width: 100%; }
+
+.day-card .dc-kanji {
+  position: absolute;
+  right: 1rem;
+  top: 0.4rem;
+  font-family: var(--jp);
+  font-size: 5.4rem;
+  line-height: 1;
+  font-weight: 300;
+  color: rgba(178, 67, 28, 0.10);
+  transition: color 0.5s ease, transform 0.7s cubic-bezier(.2,.8,.2,1);
+  pointer-events: none;
+  user-select: none;
+}
+.day-card:hover .dc-kanji {
+  color: rgba(178, 67, 28, 0.28);
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.day-card .dc-region {
+  font-family: var(--label);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  margin-bottom: 1.2rem;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.day-card .dc-date {
+  font-family: var(--label);
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 0.5rem;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.day-card .dc-theme {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.005em;
+  position: relative;
+  z-index: 1;
+  padding-right: 3rem; /* Leave room for kanji */
+}
+
+.day-card p {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.day-card .dc-cta {
+  margin-top: auto;
+  font-family: var(--label);
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+.day-card:hover .dc-cta { color: var(--vermilion); }
+
+.day-card .dc-arrow {
+  font-family: var(--serif);
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
+}
+.day-card:hover .dc-arrow { transform: translateX(6px); }
+
+/* Feature cards (Michelin nights) get a gold hairline */
+.day-card--feature {
+  background: linear-gradient(180deg, rgba(168,134,74,0.05), rgba(255,250,240,0.55));
+}
+.day-card--feature::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, transparent 50%, var(--gold) 50%);
+  opacity: 0.18;
+}
+.day-card--feature .dc-region { color: var(--gold); }
+
+/* Overview footer */
+.overview__foot {
+  font-family: var(--italic);
+  font-style: italic;
+  text-align: center;
+  color: var(--ink-mute);
+  font-size: 1rem;
+  margin-top: 3.5rem;
+}
+
+/* Add an id-jump highlight when a day card links down */
+@keyframes day-land {
+  0%   { background: rgba(178,67,28,0.08); }
+  100% { background: transparent; }
+}
+.day:target {
+  animation: day-land 1.6s ease-out;
+}
+
+/* Smooth-out the cover watermark against the new body grain */
+.cover__watermark {
+  will-change: transform;
 }

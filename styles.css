@@ -981,12 +981,113 @@ footer small {
   92%  {                                                  opacity: 0.35; }
   100% { transform: translate(12vw, 112vh) rotate(540deg); opacity: 0; }
 }
-.petal--1 { left:  8%; animation: drift 52s linear infinite;              animation-delay: -3s;  width: 20px; }
-.petal--2 { left: 24%; animation: drift 68s linear infinite;              animation-delay: -22s; width: 14px; opacity: 0.25; }
-.petal--3 { left: 42%; animation: drift 74s linear infinite;              animation-delay: -44s; width: 26px; }
-.petal--4 { left: 63%; animation: drift 58s linear infinite;              animation-delay: -14s; width: 18px; }
-.petal--5 { left: 78%; animation: drift 82s linear infinite;              animation-delay: -60s; width: 22px; }
-.petal--6 { left: 92%; animation: drift 64s linear infinite;              animation-delay: -33s; width: 16px; }
+.petal--1  { left:  6%; animation: drift  52s linear infinite; animation-delay:  -3s; width: 20px; }
+.petal--2  { left: 16%; animation: drift  68s linear infinite; animation-delay: -22s; width: 14px; opacity: 0.25; }
+.petal--3  { left: 28%; animation: drift  74s linear infinite; animation-delay: -44s; width: 26px; }
+.petal--4  { left: 39%; animation: drift  58s linear infinite; animation-delay: -14s; width: 18px; }
+.petal--5  { left: 50%; animation: drift  82s linear infinite; animation-delay: -60s; width: 22px; }
+.petal--6  { left: 61%; animation: drift  64s linear infinite; animation-delay: -33s; width: 16px; }
+.petal--7  { left: 72%; animation: drift  90s linear infinite; animation-delay:  -8s; width: 24px; }
+.petal--8  { left: 83%; animation: drift  56s linear infinite; animation-delay: -50s; width: 12px; }
+.petal--9  { left: 91%; animation: drift  72s linear infinite; animation-delay: -18s; width: 20px; }
+.petal--10 { left: 34%; animation: drift 100s linear infinite; animation-delay: -80s; width: 28px; opacity: 0.2; }
+
+/* Sumi-e ink-wash color clouds, very slow drift */
+.ambient .cloud {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  will-change: transform;
+  opacity: 0.55;
+}
+.cloud--1 {
+  width: 55vmax; height: 55vmax;
+  left: -14%; top: -18%;
+  background: radial-gradient(circle at 45% 45%, rgba(178, 67, 28, 0.28), transparent 70%);
+  animation: cloud-a 95s ease-in-out infinite alternate;
+}
+.cloud--2 {
+  width: 50vmax; height: 50vmax;
+  right: -18%; top: 24%;
+  background: radial-gradient(circle at 55% 50%, rgba(168, 134, 74, 0.26), transparent 70%);
+  animation: cloud-b 130s ease-in-out infinite alternate;
+}
+.cloud--3 {
+  width: 62vmax; height: 62vmax;
+  left: 20%; bottom: -36%;
+  background: radial-gradient(circle at 50% 50%, rgba(85, 96, 72, 0.20), transparent 70%);
+  animation: cloud-c 160s ease-in-out infinite alternate;
+}
+.cloud--4 {
+  width: 42vmax; height: 42vmax;
+  left: 55%; top: 60%;
+  background: radial-gradient(circle at 50% 50%, rgba(228, 194, 186, 0.28), transparent 70%);
+  animation: cloud-d 110s ease-in-out infinite alternate;
+}
+@keyframes cloud-a {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(14vw,  8vh) scale(1.12); }
+  100% { transform: translate(22vw, 18vh) scale(1.22); }
+}
+@keyframes cloud-b {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-10vw,  8vh) scale(0.94); }
+  100% { transform: translate(-18vw, 20vh) scale(0.85); }
+}
+@keyframes cloud-c {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate( 6vw, -10vh) scale(1.05); }
+  100% { transform: translate(14vw, -22vh) scale(1.15); }
+}
+@keyframes cloud-d {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate( -8vw,  6vh) scale(1.08); }
+  100% { transform: translate(-14vw, 12vh) scale(0.95); }
+}
+
+/* Seigaiha wave pattern drifting slowly along the bottom */
+.ambient-waves {
+  position: absolute;
+  left: -20%;
+  right: 0;
+  bottom: 0;
+  width: 140%;
+  height: 34vh;
+  color: var(--vermilion);
+  opacity: 0.10;
+  pointer-events: none;
+  animation: waves-drift 240s linear infinite;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 50%, transparent 100%);
+}
+@keyframes waves-drift {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-160px); }
+}
+
+/* Golden sparks — slow-rising fireflies at dusk */
+.ambient .spark {
+  position: absolute;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(168, 134, 74, 0.85), 0 0 18px rgba(168, 134, 74, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+@keyframes rise {
+  0%   { transform: translate(0, 110vh) scale(0.6); opacity: 0; }
+  12%  { opacity: 0.9; }
+  50%  { transform: translate(30px, 50vh) scale(1); }
+  88%  { opacity: 0.65; }
+  100% { transform: translate(60px, -10vh) scale(0.7); opacity: 0; }
+}
+.spark--1 { left: 18%; animation: rise 28s ease-in-out infinite;              animation-delay:  -4s; }
+.spark--2 { left: 46%; animation: rise 34s ease-in-out infinite;              animation-delay: -18s; }
+.spark--3 { left: 71%; animation: rise 26s ease-in-out infinite;              animation-delay: -10s; }
+.spark--4 { left: 88%; animation: rise 38s ease-in-out infinite;              animation-delay: -24s; }
 
 @media (prefers-reduced-motion: reduce) {
   .ambient { display: none; }

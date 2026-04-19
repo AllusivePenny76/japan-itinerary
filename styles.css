@@ -1487,10 +1487,12 @@ footer small {
   .petal--5, .petal--7, .petal--9, .petal--10 { display: none; }
   .spark--2 { display: none; }
 
-  /* Topbar — tighter + shorter labels; keep the xlsx button visible */
-  .topbar { padding: 0.7rem 1rem; }
+  /* Topbar — one line on phones: seal + xlsx only */
+  .topbar { padding: 0.65rem 1rem; }
   .topbar__mark span:last-child { display: none; }
-  .topbar__links a { margin-left: 0.9rem; font-size: 0.6rem; letter-spacing: 0.2em; }
+  .topbar__links { gap: 0; }
+  .topbar__links a { display: none; margin-left: 0; font-size: 0.6rem; letter-spacing: 0.2em; }
+  .topbar__links a.topbar__dl { display: inline-flex; }
 
   /* Cover — reduce padding; let the title breathe */
   .cover { padding: 5.5rem 1.25rem 2.5rem; min-height: 100svh; }
